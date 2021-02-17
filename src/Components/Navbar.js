@@ -4,8 +4,12 @@ import { Urls } from "../Routes/Routes";
 
 
 export default class Navbar extends react.Component {
+    constructor(props) {
+        super(props);
 
+    }
     render() {
+        console.log(this.props)
         return (
             <AppBar position="static">
                 <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>

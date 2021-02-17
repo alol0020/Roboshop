@@ -13,7 +13,7 @@ class App extends react.Component {
     const childprops = { ...this.state }
     return (
       <div >
-        <Navbar />
+        <Navbar props={childprops} />
         <Routes childprops={childprops} />
       </div >
     );
