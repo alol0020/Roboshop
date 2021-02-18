@@ -1,4 +1,5 @@
 import react from 'react';
+import { getAllProducts } from './Api/Api';
 import './App.css';
 import Navbar from './Components/Navbar';
 import Routes from './Routes/Routes';
@@ -6,11 +7,25 @@ import Routes from './Routes/Routes';
 class App extends react.Component {
   constructor(props) {
     super(props);
-    this.state = { val: 1 }
+    this.state = { products: [] }
 
   }
+
+  componentDidMount() {
+    this.fetchProducts();
+  }
+
+  async fetchProducts() {
+    let products = await getAllProducts();
+    if (products?.length > 0) {
+      this.setState({products});
+    }
+  }
+
   render() {
+    
     const childprops = { ...this.state }
+    console.log(childprops)
     return (
       <div >
         <Routes childprops={childprops} />
