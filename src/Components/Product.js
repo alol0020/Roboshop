@@ -8,6 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import { withStyles } from '@material-ui/core';
 import imagePlaceholder from "../Assets/Images/placeholder.png"
+import { Urls } from '../Routes/Routes';
+import { Link } from 'react-router-dom';
 
 const styles = (theme) => ({
     root: {
@@ -28,6 +30,11 @@ const styles = (theme) => ({
         maxWidth: '100%',
         maxHeight: '100%',
     },
+    link:{
+        cursor: "pointer",
+        textDecoration: "none",
+
+    },
 });
 
 class Product extends React.Component {
@@ -41,33 +48,33 @@ class Product extends React.Component {
 
 
     render() {
-        console.log("Product", this.props)
         const { classes, product } = this.props;
 
         return (
-            <Paper className={classes.paper} elevation={this.state.elevation} onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut}>
-                <Grid item >
-                    <Grid container spacing={2}>
-                        <Grid item>
-                            <ButtonBase className={classes.image}>
-                                <img className={classes.img} src={product.image || imagePlaceholder} />
-                            </ButtonBase>
-                        </Grid>
-                        <Grid item xs={12} sm container>
-                            <Grid item xs container direction="column" spacing={2}>
-                                <Grid item xs>
-                                    <Typography gutterBottom variant="subtitle1">{product.name}</Typography>
-                                    <Typography variant="body2" gutterBottom>{product.description}</Typography>
-                                </Grid>
-                            </Grid>
+            <Link to={{pathname:Urls.productInfo+""+product.name.replace(" ","_"),state:{product}}} className={classes.link}>
+                <Paper className={classes.paper} elevation={this.state.elevation} onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut} >
+                    <Grid item >
+                        <Grid container spacing={2}>
                             <Grid item>
-                                <Typography variant="subtitle1">{product.price} kr</Typography>
+                                <div className={classes.image}>
+                                    <img className={classes.img} src={product.image || imagePlaceholder} />
+                                </div>
+                            </Grid>
+                            <Grid item xs={12} sm container>
+                                <Grid item xs container direction="column" spacing={2}>
+                                    <Grid item xs>
+                                        <Typography gutterBottom variant="subtitle1">{product.name}</Typography>
+                                        <Typography variant="body2" gutterBottom>{product.description}</Typography>
+                                    </Grid>
+                                </Grid>
+                                <Grid item>
+                                    <Typography variant="subtitle1">{product.price} kr</Typography>
+                                </Grid>
                             </Grid>
                         </Grid>
                     </Grid>
-                </Grid>
-            </Paper>
-
+                </Paper>
+            </Link>
         )
     }
 }
