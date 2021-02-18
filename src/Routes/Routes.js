@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import CheckOut from "../Pages/CheckOut";
 import ProductInfo from "../Pages/ProductInfo";
 import Main from "../Pages/Main";
+import AppliedRoute from "./AppliedRoute";
 
 
 export default class Routes extends react.Component {
@@ -10,10 +11,9 @@ export default class Routes extends react.Component {
     render() {
         return (
             <Switch>
-                <Route path={Urls.productInfo} render={(props) => (<ProductInfo {...props} {...this.props.childprops} />)} />
-                <Route path={Urls.checkout} render={(props) => (<CheckOut {...props} {...this.props.childprops} />)} />
-                <Route path={Urls.main} render={(props) => (<Main {...props} {...this.props.childprops} />)} />
-
+                <AppliedRoute component={ProductInfo} path={Urls.productInfo} props = {this.props.childprops}/>
+                <AppliedRoute component={CheckOut} path={Urls.checkout} props = {this.props.childprops}/>
+                <AppliedRoute component={Main} path={Urls.main} props = {this.props.childprops}/>
             </Switch>
         );
     }
