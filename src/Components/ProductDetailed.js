@@ -10,6 +10,7 @@ import { withStyles } from '@material-ui/core';
 import imagePlaceholder from "../Assets/Images/placeholder.png"
 import { Urls } from '../Routes/Routes';
 import { Link } from 'react-router-dom';
+import Stock from './Stock';
 
 const styles = (theme) => ({
     root: {
@@ -18,11 +19,18 @@ const styles = (theme) => ({
     paper: {
         padding: theme.spacing(2),
         margin: theme.spacing(2),
-        maxWidth: 500,
+        maxWidth: "90%",
+    },
+    infoSection: {
+        display: "flex",
+        justifyContent: "space-between",
+    },
+    infoTexts: {
+        maxWidth: "80%",
     },
     image: {
-        width: 128,
-        height: 128,
+        width: 256,
+        height: 256,
     },
     img: {
         margin: 'auto',
@@ -30,9 +38,10 @@ const styles = (theme) => ({
         maxWidth: '100%',
         maxHeight: '100%',
     },
+
 });
 
-class Product extends React.Component {
+class ProductDetailed extends React.Component {
     constructor(props) {
         super(props);
         this.state = { elevation: 1 }
@@ -54,8 +63,8 @@ class Product extends React.Component {
                                 <img className={classes.img} src={product.image || imagePlaceholder} />
                             </div>
                         </Grid>
-                        <Grid item xs={12} sm container>
-                            <Grid item xs container direction="column" spacing={2}>
+                        <Grid item xs={12} sm container className={classes.infoSection}>
+                            <Grid item xs container direction="column" spacing={2} className={classes.infoTexts}>
                                 <Grid item xs>
                                     <Typography gutterBottom variant="h6">{product.name}</Typography>
                                     <Typography variant="body2" gutterBottom>{product.description}</Typography>
@@ -63,12 +72,16 @@ class Product extends React.Component {
                             </Grid>
                             <Grid item>
                                 <Typography variant="subtitle1">{product.price} kr</Typography>
+                                <Stock value={product.inStock} />
+
                             </Grid>
                         </Grid>
+
                     </Grid>
+
                 </Grid>
             </Paper>
         )
     }
 }
-export default withStyles(styles)(Product)
+export default withStyles(styles)(ProductDetailed)
