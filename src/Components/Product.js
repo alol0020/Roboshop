@@ -4,7 +4,8 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import { withStyles } from '@material-ui/core';
-
+//Note: Continue nice example from 
+// https://material-ui.com/components/grid/#ComplexGrid.js
 const styles = (theme) => ({
     root: {
         flexGrow: 1,
