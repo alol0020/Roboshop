@@ -10,6 +10,7 @@ import { withStyles } from '@material-ui/core';
 import imagePlaceholder from "../Assets/Images/placeholder.png"
 import { Urls } from '../Routes/Routes';
 import { Link } from 'react-router-dom';
+import Stock from './Stock';
 
 const styles = (theme) => ({
     root: {
@@ -61,8 +62,9 @@ class Product extends React.Component {
                                     <Typography variant="body2" gutterBottom>{product.description}</Typography>
                                 </Grid>
                             </Grid>
-                            <Grid item>
+                            <Grid item style={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
                                 <Typography variant="subtitle1">{product.price} kr</Typography>
+                                <Stock value={product.inStock} />
                             </Grid>
                         </Grid>
                     </Grid>

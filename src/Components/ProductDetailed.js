@@ -70,10 +70,9 @@ class ProductDetailed extends React.Component {
                                     <Typography variant="body2" gutterBottom>{product.description}</Typography>
                                 </Grid>
                             </Grid>
-                            <Grid item>
+                            <Grid item style={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
                                 <Typography variant="subtitle1">{product.price} kr</Typography>
                                 <Stock value={product.inStock} />
-
                             </Grid>
                         </Grid>
 

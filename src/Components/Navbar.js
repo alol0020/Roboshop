@@ -1,4 +1,5 @@
-import react from "react"; import { AppBar, IconButton, Toolbar, Typography, Button, } from "@material-ui/core";
+import react from "react";
+ import {  Button, } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { Urls } from "../Routes/Routes";
 import logo from "../Assets/Images/Logo.png"
@@ -10,13 +11,15 @@ export default class Navbar extends react.Component {
     }
     render() {
         return (
-            <div className="navbar">
+            <div className="navbar" >
                 <Link to={Urls.main} >
-                    <Button variant="contained" color="primary">Home</Button>
+                    <Button variant="contained" color="primary">Hem</Button>
                 </Link>
-                <img src={logo}/>
+                <Link to={Urls.main} style={{cursor:"default"}}>
+                    <img src={logo} />
+                </Link>
                 <Link to={Urls.checkout} >
-                    <Button variant="contained" color="primary">Cart</Button>
+                    <Button variant="contained" color="primary">Kundvagn</Button>
                 </Link>
             </div>
         )
