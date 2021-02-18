@@ -18,14 +18,13 @@ class App extends react.Component {
   async fetchProducts() {
     let products = await getAllProducts();
     if (products?.length > 0) {
-      this.setState({products});
+      this.setState({ products });
     }
   }
 
   render() {
-    
-    const childprops = { ...this.state }
-    console.log(childprops)
+
+    const childprops = { shop: { ...this.state } }
     return (
       <div >
         <Routes childprops={childprops} />

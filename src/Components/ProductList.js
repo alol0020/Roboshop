@@ -4,7 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import { withStyles } from '@material-ui/core';
-import ProductList from '../Components/ProductList';
+import Product from './Product';
 
 const styles = (theme) => ({
     root: {
@@ -27,21 +27,23 @@ const styles = (theme) => ({
     },
 });
 
-class Main extends React.Component {
+class ProductList extends React.Component {
 
 
     render() {
-        console.log("main", this.props)
+        console.log("ProductList", this.props)
         const { classes } = this.props;
 
         return (
-            <div>
-                <h1>Robotar</h1>
-               <ProductList shop={this.props.shop}/>
-            </div>
-
+            <Grid container spacing={1} fl>
+                <Product />
+                <Product />
+                <Product />
+                <Product />
+                <Product />
+            </Grid>
 
         )
     }
 }
-export default withStyles(styles)(Main)
+export default withStyles(styles)(ProductList)
