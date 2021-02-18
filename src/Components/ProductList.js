@@ -36,11 +36,7 @@ class ProductList extends React.Component {
 
         return (
             <Grid container spacing={1} fl>
-                <Product />
-                <Product />
-                <Product />
-                <Product />
-                <Product />
+                {this.props.shop.products.map(product => <Product product={product} key={product.id}/>)}
             </Grid>
 
         )
