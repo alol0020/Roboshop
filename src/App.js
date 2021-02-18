@@ -34,3 +34,10 @@ class App extends react.Component {
 }
 
 export default App;
+
+
+//notes This project uses codesnippets and other free to use content. 
+
+// https://material-ui.com/components/grid/#ComplexGrid.js
+//images from 
+//https://cdn2.vectorstock.com/i/1000x1000/43/61/robot-icon-set-vector-19654361.jpg
