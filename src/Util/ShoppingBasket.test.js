@@ -72,16 +72,14 @@ test('Shoppingbasket remove one', async () => {
     //Förväntar oss att korgen innehåller rätt produkter
     let basketProducts = shoppingbasket.getProducts();
     for (let prod of expectedProducts) {
-        expect(basketProducts.find(p => p.id == prod.id) != null).toBeTruthy();    
+        expect(basketProducts.find(p => p.id == prod.id) != null).toBeTruthy();
     }
 
     expect(shoppingbasket.getTotalPrice()).toBe(expectedTotalPrice); //Totalpris stämmer
 });
 
 
-//går inte att ta bort podukter som inte finns
-
-//ta bort produkt, 2 stycken av två olika produkter i korgen
+//Det ska inte gå att ta bort podukter som inte finns
 test('Shoppingbasket remove item that is not in basket', async () => {
     let shoppingbasket = new ShoppingBasket();
     let product1 = GetRandomProduct();
@@ -108,10 +106,35 @@ test('Shoppingbasket remove item that is not in basket', async () => {
     //Förväntar oss att korgen innehåller rätt produkter
     let basketProducts = shoppingbasket.getProducts();
     for (let prod of products) {
-        expect(basketProducts.find(p => p.id == prod.id) != null).toBeTruthy();    
+        expect(basketProducts.find(p => p.id == prod.id) != null).toBeTruthy();
     }
 
     expect(shoppingbasket.getTotalPrice()).toBe(expectedTotalPrice); //Totalpris stämmer
 });
 
 
+
+
+
+
+test('Shoppingbasket get number of a specific product', async () => {
+    let shoppingbasket = new ShoppingBasket();
+    let product1 = GetRandomProduct();
+    let product2 = GetRandomProduct();
+
+    let product3 = GetRandomProduct(); //en produkt som inte läggs till
+
+    let products = [product2, product2, product2, product1, product1];
+
+
+    //lägg till produkter i korgen
+    for (let product of products) {
+        shoppingbasket.addProduct(product);
+    }
+
+
+    expect(shoppingbasket.GetNumberOf(product1)).toBe(2)
+    expect(shoppingbasket.GetNumberOf(product2)).toBe(3)
+    expect(shoppingbasket.GetNumberOf(product3)).toBe(0)
+}
+});
