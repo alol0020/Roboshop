@@ -14,7 +14,7 @@ export default class ShoppingBasket {
         this.products.push(product);
     }
     removeProduct(productToBeRemoved) {
-        
+
         let idx = this.products.indexOf(this.products.find(prod => prod.id == productToBeRemoved.id));
         if (idx > -1) {
             this.products.splice(idx, 1);
