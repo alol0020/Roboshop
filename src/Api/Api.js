@@ -1,7 +1,7 @@
 import { AllProducts } from "../Mock/MockApi";
 import { Switches } from "../Util/Switches";
 
-export async function getAllProducts() {
+export async function GetAllProducts() {
 
     if (Switches.mockApi) {
         return new Promise((resolve, reject) => {
