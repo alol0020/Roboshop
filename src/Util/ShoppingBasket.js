@@ -9,11 +9,11 @@ export default class ShoppingBasket {
         return this.products;
     }
 
-    addProduct(product) {
+    AddProduct(product) {
         this.totalPrice += product.price;
         this.products.push(product);
     }
-    removeProduct(productToBeRemoved) {
+    RemoveProduct(productToBeRemoved) {
 
         let idx = this.products.indexOf(this.products.find(prod => prod.id == productToBeRemoved.id));
         if (idx > -1) {
@@ -23,8 +23,11 @@ export default class ShoppingBasket {
 
     }
 
-    getTotalPrice() {
+    GetTotalPrice() {
         return this.totalPrice;
+    }
+    GetNumberOf(product) {
+        return 0
     }
 
 
