@@ -5,11 +5,12 @@ import { GetAllProducts } from './Api/Api';
 import './App.css';
 import Routes from './Routes/Routes';
 import { roboShopTheme } from './Theme';
-
+import ShoppingBasket from "./Util/ShoppingBasket"
 class App extends react.Component {
   constructor(props) {
     super(props);
-    this.state = { products: [] }
+    let shoppingBasket = new ShoppingBasket();
+    this.state = { products: [], shoppingBasket }
 
   }
 
@@ -29,9 +30,9 @@ class App extends react.Component {
     const childprops = { shop: { ...this.state } }
     return (
       <div >
-        
+
         <ThemeProvider theme={roboShopTheme}>
-        <Routes childprops={childprops} />
+          <Routes childprops={childprops} />
         </ThemeProvider>
       </div >
     );

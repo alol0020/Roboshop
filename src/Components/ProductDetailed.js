@@ -14,30 +14,16 @@ import Stock from './Stock';
 import Product from './Product';
 
 const styles = (theme) => ({
-    root: {
-        flexGrow: 1,
-    },
+
     paper: {
         padding: theme.spacing(2),
         margin: theme.spacing(2),
         maxWidth: "90%",
     },
-    infoSection: {
-        display: "flex",
-        justifyContent: "space-between",
-    },
-    infoTexts: {
-        maxWidth: "80%",
-    },
+
     image: {
-        width: 256,
-        height: 256,
-    },
-    img: {
-        margin: 'auto',
-        display: 'block',
-        maxWidth: '100%',
-        maxHeight: '100%',
+        width: 300,
+        height: 300,
     },
 
 });
@@ -53,11 +39,11 @@ class ProductDetailed extends React.Component {
 
 
     render() {
-        const { classes, product } = this.props;
-
+        const { classes, product, shop } = this.props;
+        console.log(shop);
         return (
             <Product product={product} classes={classes} >
-                <Button variant="contained" color="secondary">Köp</Button>
+                <Button variant="contained" color="secondary" onClick={() => shop.shoppingBasket.AddProduct(product)}>Köp</Button>
             </Product>
         )
     }
