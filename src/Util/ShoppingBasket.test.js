@@ -50,7 +50,7 @@ test('Shoppingbasket remove one', async () => {
 
 
     //lägg till produkter i korgen
-    for (let products of products) {
+    for (let product of products) {
         shoppingbasket.addProduct(product);
     }
     let removedProduct = products[2];

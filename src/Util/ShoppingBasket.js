@@ -5,19 +5,27 @@ export default class ShoppingBasket {
         this.products = [];
         this.totalPrice = 0;
     }
-    getProducts() {        
+    getProducts() {
         return this.products;
     }
 
-    addProduct(product) { 
-        this.totalPrice+=product.price;
+    addProduct(product) {
+        this.totalPrice += product.price;
         this.products.push(product);
     }
-    removeProduct() { }
+    removeProduct(productToBeRemoved) {
+        
+        let idx = this.products.indexOf(this.products.find(prod => prod.id == productToBeRemoved.id));
+        if (idx > -1) {
+            this.products.splice(idx, 1);
+            this.totalPrice -= productToBeRemoved.price;
+        }
+
+    }
 
     getTotalPrice() {
-       return this.totalPrice;
-     }
+        return this.totalPrice;
+    }
 
 
 }
