@@ -6,11 +6,12 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
-import { withStyles } from '@material-ui/core';
+import { Button, withStyles } from '@material-ui/core';
 import imagePlaceholder from "../Assets/Images/placeholder.png"
 import { Urls } from '../Routes/Routes';
 import { Link } from 'react-router-dom';
 import Stock from './Stock';
+import Product from './Product';
 
 const styles = (theme) => ({
     root: {
@@ -55,31 +56,9 @@ class ProductDetailed extends React.Component {
         const { classes, product } = this.props;
 
         return (
-            <Paper className={classes.paper} elevation={this.state.elevation} onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut} >
-                <Grid item >
-                    <Grid container spacing={2}>
-                        <Grid item>
-                            <div className={classes.image}>
-                                <img className={classes.img} src={product.image || imagePlaceholder} />
-                            </div>
-                        </Grid>
-                        <Grid item xs={12} sm container className={classes.infoSection}>
-                            <Grid item xs container direction="column" spacing={2} className={classes.infoTexts}>
-                                <Grid item xs>
-                                    <Typography gutterBottom variant="h6">{product.name}</Typography>
-                                    <Typography variant="body2" gutterBottom>{product.description}</Typography>
-                                </Grid>
-                            </Grid>
-                            <Grid item style={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
-                                <Typography variant="subtitle1">{product.price} kr</Typography>
-                                <Stock value={product.inStock} />
-                            </Grid>
-                        </Grid>
-
-                    </Grid>
-
-                </Grid>
-            </Paper>
+            <Product product={product} classes={classes} >
+                <Button variant="contained" color="primary">Köp</Button>
+            </Product>
         )
     }
 }

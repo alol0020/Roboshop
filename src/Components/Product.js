@@ -44,7 +44,7 @@ class Product extends React.Component {
 
 
     render() {
-        const { classes, product } = this.props;
+        const { classes, product, children } = this.props;
 
         return (
             <Paper className={classes.paper} elevation={this.state.elevation} onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut} >
@@ -56,15 +56,18 @@ class Product extends React.Component {
                             </div>
                         </Grid>
                         <Grid item xs={12} sm container>
-                            <Grid item xs container direction="column" spacing={2}>
-                                <Grid item xs>
-                                    <Typography gutterBottom variant="h6">{product.name}</Typography>
-                                    <Typography variant="body2" gutterBottom>{product.description}</Typography>
-                                </Grid>
+                            <Grid item xs>
+                                <Typography gutterBottom variant="h6">{product.name}</Typography>
+                                <Typography variant="body2" gutterBottom>{product.description}</Typography>
                             </Grid>
-                            <Grid item style={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
-                                <Typography variant="subtitle1">{product.price} kr</Typography>
-                                <Stock value={product.inStock} />
+                            <Grid item style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", justifyContent:"space-between" }}>
+                                <Grid item style={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
+                                    <Typography variant="subtitle1">{product.price} kr</Typography>
+                                    <Stock value={product.inStock} />
+                                </Grid>
+                                <Grid item >
+                                    {children}
+                                </Grid>
                             </Grid>
                         </Grid>
                     </Grid>
