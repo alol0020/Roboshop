@@ -9,11 +9,6 @@ test('GetAppProducts returns array', async () => {
 });
 
 
-
-
-
-
-
 test('GetAppProducts items have properties', async () => {
 
     let products = await GetAllProducts();
@@ -23,9 +18,6 @@ test('GetAppProducts items have properties', async () => {
             expect(property in product).toBeTruthy();
         }
     }
-
-
-
 
 });
 

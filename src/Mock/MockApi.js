@@ -27,7 +27,7 @@ const random = (max) => {
 const randomMin = (min, max) => {
     return Math.floor(min + Math.random() * (max - min));
 }
-const randomProduct = () => {
+export const GetRandomProduct = () => {
     const name = names[random(names.length)] + " " + techPostfix[random(techPostfix.length)];
     const image = images[random(images.length)];
     const description = descriptions[random(descriptions.length)];
@@ -38,10 +38,10 @@ const randomProduct = () => {
 
 
 export const AllProducts = [
-    randomProduct(),
-    randomProduct(),
-    randomProduct(),
-    randomProduct(),
-    randomProduct(),
+    GetRandomProduct(),
+    GetRandomProduct(),
+    GetRandomProduct(),
+    GetRandomProduct(),
+    GetRandomProduct(),
 ]
 
