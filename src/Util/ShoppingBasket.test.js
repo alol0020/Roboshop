@@ -1,5 +1,5 @@
+import { GetRandomProduct } from "../Mock/MockApi";
 import ShoppingBasket from "./ShoppingBasket";
-import { GetRanomProduct } from "../Mock/MockApi";
 
 
 //tom varukorg är tom
@@ -17,7 +17,7 @@ test('Shoppingbasket empty is empty', async () => {
 //lägg till en produkt
 test('Shoppingbasket add one', async () => {
     let shoppingbasket = new ShoppingBasket();
-    let product = GetRanomProduct();
+    let product = GetRandomProduct();
     shoppingbasket.addProduct(product);
 
     expect(shoppingbasket.getProducts().length).toBe(1);    //En produkt
@@ -28,11 +28,11 @@ test('Shoppingbasket add one', async () => {
 
 test('Shoppingbasket add many', async () => {
     let shoppingbasket = new ShoppingBasket();
-    let products = [GetRanomProduct(), GetRanomProduct(), GetRanomProduct()];
+    let products = [GetRandomProduct(), GetRandomProduct(), GetRandomProduct()];
     let expectedTotalPrice = products[0].price + products[1].price + products[2].price;
 
     //lägg till produkter i korgen
-    for (let products of products) {
+    for (let product of products) {
         shoppingbasket.addProduct(product);
     }
 
@@ -46,7 +46,7 @@ test('Shoppingbasket add many', async () => {
 //ta bort produkt
 test('Shoppingbasket remove one', async () => {
     let shoppingbasket = new ShoppingBasket();
-    let products = [GetRanomProduct(), GetRanomProduct(), GetRanomProduct()];
+    let products = [GetRandomProduct(), GetRandomProduct(), GetRandomProduct()];
 
 
     //lägg till produkter i korgen

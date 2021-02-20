@@ -18,7 +18,7 @@ const descriptions = [
     " Ett tydligt fokus på automatiserade lösningar hjälper tillverkare förbättra produktivitet, produktkvalitet och säkerheten i arbetsmiljön genom automation. RoboShop har installerat mer än 500 000 industrirobotar världen över.",
     "Roboten har en viss rörlighet, för varje arbetsstycke den ska arbeta med, förses roboten med ett passande verktyg. En robot som används för att flytta en del till en mobiltelefon, måste alltså delvis byggas om och programmeras om när den ska flytta en annan bit.",
     "En industrirobot är en robot som används inom industrin. Det är bäst så, ute i det vilda skulle den inte överleva.",
-"Tool Center Point (TCP) är den punkt på en industrirobot som inte rör sig när man roterar verktyget och som programmeraren har som spatial nollpunkt och referenspunkt vid programmeringen. I regel är TCP belägen på en fysisk punkt på verktyget, till exempel i ändan på ett svetsmunstycke, men kan även vara belägen på ett visst avstånd från verktyget. En robot har typiskt flera TCP, exempelvis för olika verktyg, men bara en TCP kan vara aktiv vid en viss tidpunkt.",
+    "Tool Center Point (TCP) är den punkt på en industrirobot som inte rör sig när man roterar verktyget och som programmeraren har som spatial nollpunkt och referenspunkt vid programmeringen. I regel är TCP belägen på en fysisk punkt på verktyget, till exempel i ändan på ett svetsmunstycke, men kan även vara belägen på ett visst avstånd från verktyget. En robot har typiskt flera TCP, exempelvis för olika verktyg, men bara en TCP kan vara aktiv vid en viss tidpunkt.",
 ];
 
 const random = (max) => {
@@ -27,7 +27,7 @@ const random = (max) => {
 const randomMin = (min, max) => {
     return Math.floor(min + Math.random() * (max - min));
 }
-export const GetRandomProduct = () => {
+export function GetRandomProduct() {
     const name = names[random(names.length)] + " " + techPostfix[random(techPostfix.length)];
     const image = images[random(images.length)];
     const description = descriptions[random(descriptions.length)];

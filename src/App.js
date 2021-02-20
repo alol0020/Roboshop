@@ -1,5 +1,5 @@
 import react from 'react';
-import { getAllProducts } from './Api/Api';
+import { GetAllProducts } from './Api/Api';
 import './App.css';
 import Navbar from './Components/Navbar';
 import Routes from './Routes/Routes';
@@ -16,7 +16,7 @@ class App extends react.Component {
   }
 
   async fetchProducts() {
-    let products = await getAllProducts();
+    let products = await GetAllProducts();
     if (products?.length > 0) {
       this.setState({ products });
     }
