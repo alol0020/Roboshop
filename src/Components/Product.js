@@ -9,7 +9,7 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import { withStyles } from '@material-ui/core';
 import imagePlaceholder from "../Assets/Images/placeholder.png"
 import { Urls } from '../Routes/Routes';
-import { Link } from 'react-router-dom';
+import { roboShopTheme } from '../Theme';
 import Stock from './Stock';
 
 const styles = (theme) => ({
@@ -60,7 +60,7 @@ class Product extends React.Component {
                                 <Typography gutterBottom variant="h6">{product.name}</Typography>
                                 <Typography variant="body2" gutterBottom>{product.description}</Typography>
                             </Grid>
-                            <Grid item style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", justifyContent:"space-between" }}>
+                            <Grid item style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", justifyContent: "space-between" }}>
                                 <Grid item style={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
                                     <Typography variant="subtitle1">{product.price} kr</Typography>
                                     <Stock value={product.inStock} />

@@ -57,7 +57,7 @@ class ProductDetailed extends React.Component {
 
         return (
             <Product product={product} classes={classes} >
-                <Button variant="contained" color="primary">Köp</Button>
+                <Button variant="contained" color="secondary">Köp</Button>
             </Product>
         )
     }

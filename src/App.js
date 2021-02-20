@@ -1,8 +1,10 @@
+
+import { ThemeProvider } from '@material-ui/core';
 import react from 'react';
 import { GetAllProducts } from './Api/Api';
 import './App.css';
-import Navbar from './Components/Navbar';
 import Routes from './Routes/Routes';
+import { roboShopTheme } from './Theme';
 
 class App extends react.Component {
   constructor(props) {
@@ -27,7 +29,10 @@ class App extends react.Component {
     const childprops = { shop: { ...this.state } }
     return (
       <div >
+        
+        <ThemeProvider theme={roboShopTheme}>
         <Routes childprops={childprops} />
+        </ThemeProvider>
       </div >
     );
   }
