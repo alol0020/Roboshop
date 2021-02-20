@@ -79,5 +79,39 @@ test('Shoppingbasket remove one', async () => {
 });
 
 
-//går inte att ta bort mer produkter som inte finns
+//går inte att ta bort podukter som inte finns
+
+//ta bort produkt, 2 stycken av två olika produkter i korgen
+test('Shoppingbasket remove one', async () => {
+    let shoppingbasket = new ShoppingBasket();
+    let product1 = GetRandomProduct();
+    let product2 = GetRandomProduct();
+    let products = [product1, product1];
+
+    let initialValue = 0;
+    let expectedTotalPrice = products.reduce(function (total, currentValue) {
+        return total + currentValue.price;
+    }, initialValue);
+
+
+    //lägg till produkter i korgen
+    for (let product of products) {
+        shoppingbasket.addProduct(product);
+    }
+
+    shoppingbasket.removeProduct(product2);
+
+
+
+    expect(shoppingbasket.getProducts().length).toBe(2);    //rätt antal
+
+    //Förväntar oss att korgen innehåller rätt produkter
+    let basketProducts = shoppingbasket.getProducts();
+    for (let prod of products) {
+        expect(basketProducts.find(p => p.id == prod.id) != null).toBeTruthy();    
+    }
+
+    expect(shoppingbasket.getTotalPrice()).toBe(expectedTotalPrice); //Totalpris stämmer
+});
+
 
