@@ -10,22 +10,22 @@ const styles = (theme) => ({
     bar: {
         display: "flex",
         flexDirection: "row",
-        flex: 1,      
+        flex: 1,
 
     },
     link: {
-
         display: "flex",
         alignItems: "flex-end",
+        textDecoration: "none",
     },
     image: {
         display: "flex",
         flex: 1,
         overflow: "hidden",
         position: "relative",
-        height:"25vw",
-        maxHeight:"200px"
-        
+        height: "25vw",
+        maxHeight: "200px"
+
     },
     img: {
         margin: "auto",
@@ -50,25 +50,19 @@ class Navbar extends react.Component {
 
         const { classes } = this.props;
         return (
-                <div className={classes.bar}>
-                    <div className={classes.link}>
-                        <Link to={Urls.main} >
-                            <Button variant="contained" color="primary">Hem</Button>
-                        </Link>
-                    </div>
-                    <div className={classes.image}>
-                        <Link to={Urls.main} style={{ cursor: "default" }}>
-                            <img src={logo} className={classes.img} />
-                        </Link>
-                    </div>
-
-                    <div className={classes.link}>
-                        <Link to={Urls.checkout} >
-                            <Button variant="contained" color="primary">Kundvagn</Button>
-                        </Link>
-
-                    </div>
+            <div className={classes.bar}>
+                <Link to={Urls.main} className={classes.link}>
+                    <Button variant="contained" color="primary">Hem</Button>
+                </Link>
+                <div className={classes.image}>
+                    <Link to={Urls.main} style={{ cursor: "default" }}>
+                        <img src={logo} className={classes.img} />
+                    </Link>
                 </div>
+                <Link to={Urls.checkout} className={classes.link}>
+                    <Button variant="contained" color="primary">Kundvagn</Button>
+                </Link>
+            </div>
         )
     }
 }
