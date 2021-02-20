@@ -27,7 +27,9 @@ export default class ShoppingBasket {
         return this.totalPrice;
     }
     GetNumberOf(product) {
-        return 0
+
+
+        return this.products.filter(prod=>prod.id==product.id).length
     }
 
 
