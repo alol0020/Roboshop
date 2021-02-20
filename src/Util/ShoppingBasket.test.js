@@ -82,7 +82,7 @@ test('Shoppingbasket remove one', async () => {
 //går inte att ta bort podukter som inte finns
 
 //ta bort produkt, 2 stycken av två olika produkter i korgen
-test('Shoppingbasket remove one', async () => {
+test('Shoppingbasket remove item that is not in basket', async () => {
     let shoppingbasket = new ShoppingBasket();
     let product1 = GetRandomProduct();
     let product2 = GetRandomProduct();
