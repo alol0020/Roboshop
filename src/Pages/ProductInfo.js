@@ -11,7 +11,7 @@ export default class ProductInfo extends react.Component {
         const product = this.props.location.state?.product;
 
         if (product) {
-            return <ProductDetailed product={product} shop={this.props.shop}/>
+            return <ProductDetailed product={product} shop={this.props.shop} />
         }
         else {
             //Sidan kunde inte hittas

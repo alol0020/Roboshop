@@ -17,13 +17,13 @@ class ProductList extends React.Component {
 
 
     render() {
-        const { classes } = this.props;
+        const { classes,shop } = this.props;
 
         return (
             <Grid container spacing={1}  >
-                {this.props.shop.products.map(product => (
+                {shop.products.map(product => (
                     <Link to={{ pathname: Urls.productInfo + "" + product.name.replace(" ", "_"), state: { product } }} className={classes.link}>
-                        <Product product={product} key={product.id} />
+                        <Product product={product} key={product.id} shop={shop} />
                     </Link>
                 ))}
             </Grid>

@@ -41,11 +41,10 @@ class Product extends React.Component {
 
     onMouseOver = () => this.setState({ elevation: 5 });
     onMouseOut = () => this.setState({ elevation: 1 });
-
+   
 
     render() {
-        const { classes, product, children } = this.props;
-
+        const { classes, product, children, shop } = this.props;
         return (
             <Paper className={classes.paper} elevation={this.state.elevation} onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut} >
                 <Grid item >
@@ -63,7 +62,7 @@ class Product extends React.Component {
                             <Grid item style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", justifyContent: "space-between" }}>
                                 <Grid item style={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
                                     <Typography variant="subtitle1">{product.price} kr</Typography>
-                                    <Stock value={product.inStock} />
+                                    <Stock value={product.inStock - shop.shoppingBasket.GetNumberOf(product)} />
                                 </Grid>
                                 <Grid item >
                                     {children}

@@ -43,7 +43,6 @@ class CheckoutProduct extends React.Component {
         const { classes, product, children, shop } = this.props;
 
         const count = shop.shoppingBasket.GetNumberOf(product);
-        console.log(this.props)
         return (
             <Paper className={classes.paper} >
                 <Grid item >

@@ -40,10 +40,12 @@ class ProductDetailed extends React.Component {
 
     render() {
         const { classes, product, shop } = this.props;
-        console.log(shop);
+         console.log(product.inStock , shop.shoppingBasket.GetNumberOf(product));
         return (
-            <Product product={product} classes={classes} >
-                <Button variant="contained" color="secondary" onClick={() => shop.shoppingBasket.AddProduct(product)}>Köp</Button>
+            <Product product={product} classes={classes} shop={shop} >
+                <Button variant="contained" color="secondary" 
+                disabled={product.inStock<= shop.shoppingBasket.GetNumberOf(product) || product.instock==0}
+                onClick={() => shop.AddToBasket(product)}>Köp</Button>
             </Product>
         )
     }

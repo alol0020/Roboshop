@@ -14,7 +14,6 @@ class Main extends React.Component {
 
     render() {
         const { classes } = this.props;
-
         return (
             <div className={classes.root}>
                 <h1>Robotar</h1>
