@@ -5,7 +5,7 @@ import Navbar from "../Components/Navbar";
 export default ({ component: C, props: cProps, ...rest }) => {
   return (
     <div>
-      <Navbar />
+      <Navbar {...cProps} />
       <Route {...rest} render={(props) => <C {...props} {...cProps} />} />;
     </div>
   );
