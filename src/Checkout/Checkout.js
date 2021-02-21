@@ -106,6 +106,10 @@ export default function Checkout(props) {
 
     }
 
+    if (activeStep === steps.length) {
+        props.shop.RemoveAllFromBasket();
+    }
+
     return (
         <React.Fragment>
             <CssBaseline />
