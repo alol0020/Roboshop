@@ -10,7 +10,7 @@ import stomper from "../Assets/Images/MockProducts/stomper.png";
 import walker from "../Assets/Images/MockProducts/walker.png";
 const images = [flyer, grasper, gripper, hover, roller, standard, stomper, walker];
 const names = ["Liam", "Olivia", "Noah", "Emma", "Oliver", "Ava", "William", "Sophia", "Elijah", "Isabella", "James", "Charlotte", "Benjamin", "Amelia", "Lucas", "Mia", "Mason", "Harper", "Ethan", "Evelyn"];
-const techPostfix = ["V2.3", "V1.0.1", "version 9 ", "2000", "3000", "L90", "M60", "Deluxe", "Premium", "X-treme", "LIDAR-version", "10hp", "20hp",
+const techPostfix = ["V2.3", "V1.0.1", "version 9 ", "2000", "3000", "L90", "M60", "Deluxe", "Premium", "X-treme", "LiDAR-version", "10hp", "20hp",
 ]
 const descriptions = [
     "Med sin unika design klarar den trånga korridorer lika lätt som stora och komplexa miljöer, även där det vistas mycket människor.",

@@ -77,19 +77,18 @@ class Navbar extends react.Component {
         this.updateWindowDimensions();
         window.addEventListener('resize', this.updateWindowDimensions);
     }
-
     componentWillUnmount() {
         window.removeEventListener('resize', this.updateWindowDimensions);
     }
-
     updateWindowDimensions() {
         this.setState({ width: window.innerWidth, height: window.innerHeight });
     }
-    render() {
 
+
+    render() {
         const { classes, shop } = this.props;
-        // const numberOfProducts = shop.shoppingBasket.GetTotalNumber()<=99? shop.shoppingBasket.GetTotalNumber():"99+";
-        const numberOfProducts = 60;
+        const numberOfProducts = shop.shoppingBasket.GetTotalNumber()<=99? shop.shoppingBasket.GetTotalNumber():"99+";
+        
         return (
             <div className={classes.bar}>
                 <Link to={Urls.main} className={classes.link} >

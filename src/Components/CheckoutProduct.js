@@ -56,9 +56,9 @@ class CheckoutProduct extends React.Component {
                             <Grid item xs>
                                 <Typography gutterBottom variant="h6">{product.name}</Typography>
                                 <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width: "100px" }}>
-                                    <AddCircle fontSize="large" onClick={() => shop.AddToBasket(product)} />
-                                    <Typography gutterBottom variant="h6">{count}</Typography>
                                     <RemoveCircle fontSize="large" onClick={() => shop.RemoveFromBasket(product)} />
+                                    <Typography gutterBottom variant="h6">{count}</Typography>
+                                    <AddCircle fontSize="large" onClick={() => shop.AddToBasket(product)} />
                                 </div>
                             </Grid>
                             <Grid item style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", justifyContent: "space-between" }}>

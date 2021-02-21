@@ -4,6 +4,7 @@ import CheckOut from "../Pages/CheckOut";
 import ProductInfo from "../Pages/ProductInfo";
 import Main from "../Pages/Main";
 import AppliedRoute from "./AppliedRoute";
+import ConfirmationPage from "../Pages/ConfirmationPage";
 
 
 export default class Routes extends react.Component {
@@ -13,6 +14,7 @@ export default class Routes extends react.Component {
             <Switch>
                 <AppliedRoute component={ProductInfo} path={Urls.productInfo} props = {this.props.childprops}/>
                 <AppliedRoute component={CheckOut} path={Urls.checkout} props = {this.props.childprops}/>
+                <AppliedRoute component={ConfirmationPage} path={Urls.confirm} props = {this.props.childprops}/>
                 <AppliedRoute component={Main} path={Urls.main} props = {this.props.childprops}/>
             </Switch>
         );
@@ -23,4 +25,5 @@ export const Urls = {
     main: "/",
     productInfo: "/product/",
     checkout: "/checkout/",
+    confirm: "/confirm/",
 }

@@ -2,6 +2,7 @@ import { Button, Grid, Paper, Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/styles";
 import react from "react";
 import CheckoutProduct from "../Components/CheckoutProduct";
+import { Urls } from "../Routes/Routes";
 
 
 const styles = (theme) => ({
@@ -32,9 +33,7 @@ class CheckOut extends react.Component {
     render() {
 
         const { classes, product, shop } = this.props;
-
         const uniqueProducts = shop.shoppingBasket.GetProducts().filter((product, idx, prodtucts) => prodtucts.indexOf(product) === idx);
-
         return (
             <div>
                  <Typography gutterBottom variant="h6">Varukorg</Typography>
@@ -52,7 +51,8 @@ class CheckOut extends react.Component {
                             <Typography gutterBottom variant="h6">Frakt 0 kr</Typography>
                             <Typography gutterBottom variant="h5">Totalpris {shop.shoppingBasket.GetTotalPrice()} kr</Typography>
                             <Button variant="contained" color="secondary"
-                                onClick={() => console.log(1)}>Lägg order</Button>
+                            disabled={shop.shoppingBasket.GetTotalNumber()==0}
+                                onClick={() => this.props.history.push(Urls.confirm)}>Lägg order</Button>
                         </Paper>
                     </Grid>
                 </Grid>

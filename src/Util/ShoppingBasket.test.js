@@ -158,3 +158,25 @@ test('Shoppingbasket get total number of products', async () => {
    
     expect(shoppingbasket.GetTotalNumber()).toBe(products.length);
 });
+
+
+//Ta bort alla produkter
+test('Shoppingbasket remove all items basket', async () => {
+    let shoppingbasket = new ShoppingBasket();
+    let product1 = GetRandomProduct();
+    let product2 = GetRandomProduct();
+    let products = [product1, product2];
+
+    
+    //lägg till produkter i korgen
+    for (let product of products) {
+        shoppingbasket.AddProduct(product);
+    }
+
+    shoppingbasket.RemoveAll();
+
+
+
+    expect(shoppingbasket.GetProducts().length).toBe(0);    //rätt antal   
+    expect(shoppingbasket.GetTotalPrice()).toBe(0); //Totalpris stämmer
+});
