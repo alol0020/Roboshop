@@ -22,7 +22,7 @@ export default class CheckOut extends react.Component {
                     const count = shop.shoppingBasket.GetNumberOf(product);
                     return (<p>{product.name} {count} á {product.price} kr styck totalt  {product.price * count} kr</p>);
                 } */}
-                {uniqueProducts.map(product => (<CheckoutProduct product={product} shop={shop} />))}
+                {uniqueProducts.map(product => (<CheckoutProduct key={product.id} product={product} shop={shop} />))}
 
             </div>
         )

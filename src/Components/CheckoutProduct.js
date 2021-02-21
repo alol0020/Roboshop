@@ -37,24 +37,7 @@ const styles = (theme) => ({
 class CheckoutProduct extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { reload: false }
     }
-    add(product) {
-        const { shop } = this.props;
-        if (shop.products.find(p => p.id == product.id).inStock - shop.shoppingBasket.GetNumberOf(product) > 0) {
-            shop.shoppingBasket.AddProduct(product);
-            this.setState({ reload: !this.state.reload });
-        }
-    }
-
-    remove(product) {
-        const { shop } = this.props;
-        if (shop.shoppingBasket.GetNumberOf(product) > 1) {
-            shop.shoppingBasket.RemoveProduct(product);
-            this.setState({ reload: !this.state.reload });
-        }
-    }
-
 
     render() {
         const { classes, product, children, shop } = this.props;
@@ -62,7 +45,7 @@ class CheckoutProduct extends React.Component {
         const count = shop.shoppingBasket.GetNumberOf(product);
         console.log(this.props)
         return (
-            <Paper className={classes.paper} elevation={this.state.elevation} onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut} >
+            <Paper className={classes.paper} >
                 <Grid item >
                     <Grid container spacing={2}>
                         <Grid item>
@@ -74,9 +57,9 @@ class CheckoutProduct extends React.Component {
                             <Grid item xs>
                                 <Typography gutterBottom variant="h6">{product.name}</Typography>
                                 <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width: "100px" }}>
-                                    <AddCircle fontSize="large" onClick={() => this.add(product)} />
+                                    <AddCircle fontSize="large" onClick={() => shop.AddToBasket(product)} />
                                     <Typography gutterBottom variant="h6">{count}</Typography>
-                                    <RemoveCircle fontSize="large" onClick={() => this.remove(product)} />
+                                    <RemoveCircle fontSize="large" onClick={() => shop.RemoveFromBasket(product)} />
                                 </div>
                             </Grid>
                             <Grid item style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", justifyContent: "space-between" }}>

@@ -10,7 +10,10 @@ class App extends react.Component {
   constructor(props) {
     super(props);
     let shoppingBasket = new ShoppingBasket();
-    this.state = { products: [], shoppingBasket }
+    this.state = { products: [], shoppingBasket , reload:true}
+
+    this.AddToBasket = this.AddToBasket.bind(this);
+    this.RemoveFromBasket = this.RemoveFromBasket.bind(this);
 
   }
 
@@ -25,9 +28,26 @@ class App extends react.Component {
     }
   }
 
+  AddToBasket(product) {
+    let shoppingBasket = this.state.shoppingBasket;
+    if (this.state.products.find(p => p.id == product.id).inStock - shoppingBasket.GetNumberOf(product) > 0) {
+      shoppingBasket.AddProduct(product);
+      this.setState({reload:!this.state.reload});
+    }
+  }
+
+  RemoveFromBasket(product) {
+    let shoppingBasket = this.state.shoppingBasket;
+    if (shoppingBasket.GetNumberOf(product) > 0) {
+      shoppingBasket.RemoveProduct(product);
+      this.setState({reload:!this.state.reload});
+    }
+  }
+
+
   render() {
 
-    const childprops = { shop: { ...this.state } }
+    const childprops = { shop: { ...this.state ,AddToBasket:this.AddToBasket, RemoveFromBasket:this.RemoveFromBasket } }
     return (
       <div >
 
