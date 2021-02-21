@@ -137,3 +137,23 @@ test('Shoppingbasket get number of a specific product', async () => {
     expect(shoppingbasket.GetNumberOf(product2)).toBe(3);
     expect(shoppingbasket.GetNumberOf(product3)).toBe(0);
 });
+
+
+test('Shoppingbasket get total number of products', async () => {
+    let shoppingbasket = new ShoppingBasket();
+    let product1 = GetRandomProduct();
+    let product2 = GetRandomProduct();
+    let product3 = GetRandomProduct(); 
+
+    let products = [product2, product2, product2, product1, product1, product3];
+
+
+    //lägg till produkter i korgen
+    for (let product of products) {
+        shoppingbasket.AddProduct(product);
+    }
+
+
+   
+    expect(shoppingbasket.GetTotalNumber()).toBe(products.length);
+});
