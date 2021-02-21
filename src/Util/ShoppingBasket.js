@@ -38,6 +38,11 @@ export default class ShoppingBasket {
     GetTotalNumber() {
         return this.products.length;
     }
+    RemoveAll() {
+
+        this.products = [];
+        this.totalPrice = 0;
+    }
 
 
 }
