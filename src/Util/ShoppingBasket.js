@@ -32,7 +32,11 @@ export default class ShoppingBasket {
     }
 
     GetNumberOf(product) {
-        return this.products.filter(prod => prod.id == product.id).length
+        return this.products.filter(prod => prod.id == product.id).length;
+    }
+
+    GetTotalNumber() {
+        return this.products.length;
     }
 
 
