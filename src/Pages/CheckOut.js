@@ -37,15 +37,15 @@ class CheckOut extends react.Component {
 
         return (
             <div>
-                <p>Varukorg:</p>
+                 <Typography gutterBottom variant="h6">Varukorg</Typography>
                 <Grid container spacing={2} wrap="wrap" justify="flex-start">
-                    <Grid item sm={8} >
+                    <Grid item xs={12} lg={8} >
                         {uniqueProducts.length == 0 && <Paper className={classes.left}>
                             <Typography gutterBottom variant="h6">Här var det tommt...</Typography>
                         </Paper>}
                         {uniqueProducts.map(product => (<CheckoutProduct key={product.id} product={product} shop={shop} />))}
                     </Grid>
-                    <Grid item  xs={4} md={4}>
+                    <Grid item  xs={12} lg={4}>
                         <Paper className={ classes.right} >
                             <Typography gutterBottom variant="h4">Sammanfattning</Typography>
                             <Typography gutterBottom variant="h6">Totalt {shop.shoppingBasket.GetTotalPrice()} kr</Typography>
