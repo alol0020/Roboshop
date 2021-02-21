@@ -1,8 +1,31 @@
+import { Button, Grid, Paper, Typography } from "@material-ui/core";
+import { withStyles } from "@material-ui/styles";
 import react from "react";
 import CheckoutProduct from "../Components/CheckoutProduct";
 
-export default class CheckOut extends react.Component {
 
+const styles = (theme) => ({
+
+    left: {
+        padding: theme.spacing(3),
+        margin: theme.spacing(2),
+        alignItems: "center",
+        flexDirection:"column",
+        display: "flex",
+    },
+    right: {
+        padding: theme.spacing(3),
+        margin: theme.spacing(2),
+        alignItems: "flex-end",
+        flexDirection:"column",
+        display: "flex",
+    },
+
+});
+
+
+
+class CheckOut extends react.Component {
 
 
 
@@ -15,14 +38,28 @@ export default class CheckOut extends react.Component {
         return (
             <div>
                 <p>Varukorg:</p>
-                {/* {uniqueProducts.map(product => {
-                    const count = shop.shoppingBasket.GetNumberOf(product);
-                    return (<p>{product.name} {count} á {product.price} kr styck totalt  {product.price * count} kr</p>);
-                } */}
-                {uniqueProducts.map(product => (<CheckoutProduct key={product.id} product={product} shop={shop} />))}
-
+                <Grid container spacing={2} wrap="wrap" justify="flex-start">
+                    <Grid item sm={8} >
+                        {uniqueProducts.length == 0 && <Paper className={classes.left}>
+                            <Typography gutterBottom variant="h6">Här var det tommt...</Typography>
+                        </Paper>}
+                        {uniqueProducts.map(product => (<CheckoutProduct key={product.id} product={product} shop={shop} />))}
+                    </Grid>
+                    <Grid item  xs={4} md={4}>
+                        <Paper className={ classes.right} >
+                            <Typography gutterBottom variant="h4">Sammanfattning</Typography>
+                            <Typography gutterBottom variant="h6">Totalt {shop.shoppingBasket.GetTotalPrice()} kr</Typography>
+                            <Typography gutterBottom variant="h6">Frakt 0 kr</Typography>
+                            <Typography gutterBottom variant="h5">Totalpris {shop.shoppingBasket.GetTotalPrice()} kr</Typography>
+                            <Button variant="contained" color="secondary"
+                                onClick={() => console.log(1)}>Lägg order</Button>
+                        </Paper>
+                    </Grid>
+                </Grid>
             </div>
         )
 
     }
 }
+
+export default withStyles(styles)(CheckOut)
