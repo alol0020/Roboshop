@@ -89,7 +89,6 @@ class Navbar extends react.Component {
         return (
             <div className={classes.bar}>
                 <Link to={Urls.main} className={classes.link} >
-                    {/* <Button variant="contained" color="primary">Hem</Button> */}
                     <Home style={{ fontSize: 60, marginRight: "10px" }} />
                     <p style={{ marginTop: "0px", paddingTop: "0px" }}>Hem</p>
                 </Link>
@@ -101,7 +100,6 @@ class Navbar extends react.Component {
                 </div>
                 <Link to={Urls.checkout} className={classes.link}>
                     <ShoppingCart style={{ fontSize: 60, marginRight: "10px" }} />
-                    {/* <Button variant="contained" color="primary">Varukorg</Button> */}
                     <p style={{ marginTop: "0px", paddingTop: "0px" }}>Varukorg</p>
                     <div className={classes.basketOverlay}>
                         <p className={classes.basketContent}>{numberOfProducts}</p>

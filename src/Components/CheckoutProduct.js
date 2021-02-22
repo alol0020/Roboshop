@@ -1,15 +1,12 @@
 
-//Note: Continue nice example from 
+//Note: Continues nice example from 
 // https://material-ui.com/components/grid/#ComplexGrid.js
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import ButtonBase from '@material-ui/core/ButtonBase';
 import { withStyles } from '@material-ui/core';
 import imagePlaceholder from "../Assets/Images/placeholder.png"
-import { Urls } from '../Routes/Routes';
-import { roboShopTheme } from '../Theme';
 import Stock from './Stock';
 import { AddCircle, RemoveCircle } from '@material-ui/icons';
 
