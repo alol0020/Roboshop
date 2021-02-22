@@ -15,7 +15,7 @@ class App extends react.Component {
 
     this.AddToBasket = this.AddToBasket.bind(this);
     this.RemoveFromBasket = this.RemoveFromBasket.bind(this);
-    this.RemoveAllFromBasket = this.RemoveAllFromBasket.bind(this);s
+    this.RemoveAllFromBasket = this.RemoveAllFromBasket.bind(this);
   }
 
   componentDidMount() {
