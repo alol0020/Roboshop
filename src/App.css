@@ -1,0 +1,12 @@
+
+.page{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+
+.container{
+    max-width: 1200px;
+  }
+  

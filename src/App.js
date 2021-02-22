@@ -65,11 +65,13 @@ class App extends react.Component {
       }
     }
     return (
-      <div >
+      <div className="page">
+        <div className="container">
 
-        <ThemeProvider theme={roboShopTheme}>
-          <Routes childprops={childprops} />
-        </ThemeProvider>
+          <ThemeProvider theme={roboShopTheme}>
+            <Routes childprops={childprops} />
+          </ThemeProvider>
+        </div >
       </div >
     );
   }
