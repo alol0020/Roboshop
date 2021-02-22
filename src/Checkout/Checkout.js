@@ -67,7 +67,6 @@ const useStyles = makeStyles((theme) => ({
 const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
 function getStepContent(step, props) {
-    console.log(props)
     switch (step) {
         case 0:
             return <AddressForm adress={props.adress} updateProps={props.updateProps} />;
@@ -82,14 +81,16 @@ function getStepContent(step, props) {
 
 export default function Checkout(props) {
     const classes = useStyles();
-    const [activeStep, setActiveStep] = React.useState(0);
+    const activeStep = props.step;
+    console.log(props);
+
 
     const handleNext = () => {
-        setActiveStep(activeStep + 1);
+        props.SetStep(activeStep + 1);
     };
 
     const handleBack = () => {
-        setActiveStep(activeStep - 1);
+        props.SetStep(activeStep - 1);
     };
 
     const validate = () => {

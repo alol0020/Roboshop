@@ -21,10 +21,10 @@ class App extends react.Component {
     this.fetchProducts();
     let oldShoppingBasket = JSON.parse(localStorage.getItem("shoppingBasket"));
     if (oldShoppingBasket) {
-      let basketToUpdate=this.state.shoppingBasket;
-      basketToUpdate.totalPrice= oldShoppingBasket.totalPrice;
-      basketToUpdate.products= oldShoppingBasket.products;
-      this.setState({ shoppingBasket:basketToUpdate });
+      let basketToUpdate = this.state.shoppingBasket;
+      basketToUpdate.totalPrice = oldShoppingBasket.totalPrice;
+      basketToUpdate.products = oldShoppingBasket.products;
+      this.setState({ shoppingBasket: basketToUpdate });
     }
   }
 
@@ -55,7 +55,7 @@ class App extends react.Component {
   RemoveAllFromBasket() {
     let shoppingBasket = this.state.shoppingBasket;
     shoppingBasket.RemoveAll();
-    this.setState({ reload: !this.state.reload });
+    // this.setState({ reload: !this.state.reload }); //Todo: Den skulle ladda om varukorgen efter betalning men laddar om hela sidan och åtgergår till main...
     localStorage.setItem("shoppingBasket", JSON.stringify(this.state.shoppingBasket));
 
   }

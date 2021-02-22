@@ -33,6 +33,7 @@ class ConfirmationPage extends react.Component {
     constructor(props) {
         super(props);
         this.state = {
+            step: 0,
             properties: {
                 adress: {
                     firstName: "",
@@ -68,7 +69,7 @@ class ConfirmationPage extends react.Component {
             return <Redirect to={{ pathname: Urls.main }} />;
         }
         return (
-            <Checkout history={this.props.history} shop={this.props.shop} adress={this.state.properties.adress} payment={this.state.properties.payment} updateProps={this.updateProps} />
+            <Checkout SetStep={(step) => this.setState({ step })} step={this.state.step} history={this.props.history} shop={this.props.shop} adress={this.state.properties.adress} payment={this.state.properties.payment} updateProps={this.updateProps} />
         )
 
     }
