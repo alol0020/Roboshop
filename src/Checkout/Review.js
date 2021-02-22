@@ -28,8 +28,8 @@ export default function Review(props) {
     { name: 'Card holder', detail: props.payment.name },
     { name: 'Card number', detail: 'xxxx-xxxx-xxxx-xxxx' },
     { name: 'Expiry date', detail: props.payment.date },
-  ];
-  const uniqueProducts = props.shop.shoppingBasket.GetProducts().filter((product, idx, prodtucts) => prodtucts.indexOf(product) === idx);
+  ];  
+  const uniqueProducts = props.shop.shoppingBasket.GetProducts().filter((v, i, a) => a.findIndex(t => (t.id === v.id)) === i)
 
   return (
     <React.Fragment>
