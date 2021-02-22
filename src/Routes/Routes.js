@@ -12,10 +12,10 @@ export default class Routes extends react.Component {
     render() {
         return (
             <Switch>
-                <AppliedRoute component={ProductInfo} path={Urls.productInfo} props = {this.props.childprops}/>
-                <AppliedRoute component={CheckOut} path={Urls.checkout} props = {this.props.childprops}/>
-                <AppliedRoute component={ConfirmationPage} path={Urls.confirm} props = {this.props.childprops}/>
-                <AppliedRoute component={Main} path={Urls.main} props = {this.props.childprops}/>
+                <AppliedRoute component={ProductInfo} path={Urls.productInfo} props={this.props.childprops} />
+                <AppliedRoute component={CheckOut} path={Urls.checkout} props={this.props.childprops} />
+                <AppliedRoute component={ConfirmationPage} path={Urls.confirm} props={this.props.childprops} />
+                <AppliedRoute component={Main} path={Urls.main} props={this.props.childprops} />
             </Switch>
         );
     }

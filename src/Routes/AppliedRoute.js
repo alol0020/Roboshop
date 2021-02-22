@@ -6,7 +6,7 @@ export default ({ component: C, props: cProps, ...rest }) => {
   return (
     <div>
       <Navbar {...cProps} />
-      <Route {...rest} render={(props) => <C {...props} {...cProps} />} />;
+      <Route {...rest} render={(props) => <C {...props} {...cProps} />} />
     </div>
   );
 };

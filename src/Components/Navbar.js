@@ -14,12 +14,9 @@ const styles = (theme) => ({
         flexDirection: "row",
         flex: 1,
         alignItems: "center"
-
-
     },
     link: {
         display: "flex",
-        // alignItems: "flex-end",
         textDecoration: "none",
         flexDirection: "column",
         color: "grey",

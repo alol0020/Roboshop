@@ -14,13 +14,9 @@ import Stock from './Stock';
 import { AddCircle, RemoveCircle } from '@material-ui/icons';
 
 const styles = (theme) => ({
-    root: {
-        flexGrow: 1,
-    },
     paper: {
         padding: theme.spacing(2),
         margin: theme.spacing(2),
-        maxWidth: 500,
     },
     image: {
         width: 128,
@@ -44,8 +40,8 @@ class CheckoutProduct extends React.Component {
 
         const count = shop.shoppingBasket.GetNumberOf(product);
         return (
-            <Paper className={classes.paper} >
-                <Grid item >
+            <Grid item xs={12}>
+                <Paper className={classes.paper} >
                     <Grid container spacing={2}>
                         <Grid item>
                             <div className={classes.image}>
@@ -69,8 +65,8 @@ class CheckoutProduct extends React.Component {
                             </Grid>
                         </Grid>
                     </Grid>
-                </Grid>
-            </Paper>
+                </Paper>
+            </Grid >
         )
     }
 }

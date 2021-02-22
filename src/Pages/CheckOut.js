@@ -36,15 +36,16 @@ class CheckOut extends react.Component {
         const uniqueProducts = shop.shoppingBasket.GetProducts().filter((v, i, a) => a.findIndex(t => (t.id === v.id)) === i)
         return (
             <div>
+                <div style={{ maxWidth:"1200px",width:"100vw", height:"1", }}></div>
                 <Typography gutterBottom variant="h6">Varukorg</Typography>
-                <Grid container spacing={2} wrap="wrap" justify="flex-start">
-                    <Grid item xs={12} lg={8} >
+                <Grid container spacing={2} >
+                    <Grid item xs={12}  >
                         {uniqueProducts.length == 0 && <Paper className={classes.left}>
                             <Typography gutterBottom variant="h6">Här var det tommt...</Typography>
                         </Paper>}
                         {uniqueProducts.map(product => (<CheckoutProduct key={product.id} product={product} shop={shop} />))}
                     </Grid>
-                    <Grid item xs={12} lg={4}>
+                    <Grid item xs={12}  >
                         <Paper className={classes.right} >
                             <Typography gutterBottom variant="h4">Sammanfattning</Typography>
                             <Typography gutterBottom variant="h6">Totalt {shop.shoppingBasket.GetTotalPrice()} kr</Typography>

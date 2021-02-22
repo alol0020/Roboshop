@@ -13,13 +13,9 @@ import { roboShopTheme } from '../Theme';
 import Stock from './Stock';
 
 const styles = (theme) => ({
-    root: {
-        flexGrow: 1,
-    },
     paper: {
         padding: theme.spacing(2),
         margin: theme.spacing(2),
-        maxWidth: 500,
     },
     image: {
         width: 128,
@@ -41,37 +37,41 @@ class Product extends React.Component {
 
     onMouseOver = () => this.setState({ elevation: 5 });
     onMouseOut = () => this.setState({ elevation: 1 });
-   
+
 
     render() {
         const { classes, product, children, shop } = this.props;
         return (
-            <Paper className={classes.paper} elevation={this.state.elevation} onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut} >
-                <Grid item >
-                    <Grid container spacing={2}>
-                        <Grid item>
-                            <div className={classes.image}>
-                                <img className={classes.img} src={product.image || imagePlaceholder} />
-                            </div>
-                        </Grid>
-                        <Grid item xs={12} sm container>
-                            <Grid item xs>
-                                <Typography gutterBottom variant="h6">{product.name}</Typography>
-                                <Typography variant="body2" gutterBottom>{product.description}</Typography>
+
+            <Grid container>
+                <Grid item xs={12}>
+                    <Paper className={classes.paper} elevation={this.state.elevation} onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut} >
+
+                        <Grid container spacing={2}>
+                            <Grid item>
+                                <div className={classes.image}>
+                                    <img className={classes.img} src={product.image || imagePlaceholder} />
+                                </div>
                             </Grid>
-                            <Grid item style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", justifyContent: "space-between" }}>
-                                <Grid item style={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
-                                    <Typography variant="subtitle1">{product.price} kr</Typography>
-                                    <Stock value={product.inStock - shop.shoppingBasket.GetNumberOf(product)} />
+                            <Grid item xs={12} sm container>
+                                <Grid item xs>
+                                    <Typography gutterBottom variant="h6">{product.name}</Typography>
+                                    <Typography variant="body2" gutterBottom>{product.description}</Typography>
                                 </Grid>
-                                <Grid item >
-                                    {children}
+                                <Grid item style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", justifyContent: "space-between" }}>
+                                    <Grid item style={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
+                                        <Typography variant="subtitle1">{product.price} kr</Typography>
+                                        <Stock value={product.inStock - shop.shoppingBasket.GetNumberOf(product)} />
+                                    </Grid>
+                                    <Grid item >
+                                        {children}
+                                    </Grid>
                                 </Grid>
                             </Grid>
                         </Grid>
-                    </Grid>
+                    </Paper>
                 </Grid>
-            </Paper>
+            </Grid>
         )
     }
 }
