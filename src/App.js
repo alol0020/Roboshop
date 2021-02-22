@@ -3,6 +3,7 @@ import { ThemeProvider } from '@material-ui/core';
 import react from 'react';
 import { GetAllProducts } from './Api/Api';
 import './App.css';
+import { GetRandomProducts } from './Mock/MockApi';
 import Routes from './Routes/Routes';
 import { roboShopTheme } from './Theme';
 import ShoppingBasket from "./Util/ShoppingBasket"
@@ -14,8 +15,7 @@ class App extends react.Component {
 
     this.AddToBasket = this.AddToBasket.bind(this);
     this.RemoveFromBasket = this.RemoveFromBasket.bind(this);
-    this.RemoveAllFromBasket = this.RemoveAllFromBasket.bind(this);
-
+    this.RemoveAllFromBasket = this.RemoveAllFromBasket.bind(this);s
   }
 
   componentDidMount() {
