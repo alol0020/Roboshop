@@ -20,6 +20,13 @@ class App extends react.Component {
 
   componentDidMount() {
     this.fetchProducts();
+    let oldShoppingBasket = JSON.parse(localStorage.getItem("shoppingBasket"));
+    if (oldShoppingBasket) {
+      let basketToUpdate=this.state.shoppingBasket;
+      basketToUpdate.totalPrice= oldShoppingBasket.totalPrice;
+      basketToUpdate.products= oldShoppingBasket.products;
+      this.setState({ shoppingBasket:basketToUpdate });
+    }
   }
 
   async fetchProducts() {
@@ -34,6 +41,7 @@ class App extends react.Component {
     if (this.state.products.find(p => p.id == product.id).inStock - shoppingBasket.GetNumberOf(product) > 0) {
       shoppingBasket.AddProduct(product);
       this.setState({ reload: !this.state.reload });
+      localStorage.setItem("shoppingBasket", JSON.stringify(this.state.shoppingBasket));
     }
   }
 
@@ -42,12 +50,14 @@ class App extends react.Component {
     if (shoppingBasket.GetNumberOf(product) > 0) {
       shoppingBasket.RemoveProduct(product);
       this.setState({ reload: !this.state.reload });
+      localStorage.setItem("shoppingBasket", JSON.stringify(this.state.shoppingBasket));
     }
   }
   RemoveAllFromBasket() {
     let shoppingBasket = this.state.shoppingBasket;
     shoppingBasket.RemoveAll();
     this.setState({ reload: !this.state.reload });
+    localStorage.setItem("shoppingBasket", JSON.stringify(this.state.shoppingBasket));
 
   }
 
