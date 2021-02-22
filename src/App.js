@@ -3,7 +3,6 @@ import { ThemeProvider } from '@material-ui/core';
 import react from 'react';
 import { GetAllProducts } from './Api/Api';
 import './App.css';
-import { GetRandomProducts } from './Mock/MockApi';
 import Routes from './Routes/Routes';
 import { roboShopTheme } from './Theme';
 import ShoppingBasket from "./Util/ShoppingBasket"

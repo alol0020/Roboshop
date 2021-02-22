@@ -11,14 +11,14 @@ const styles = (theme) => ({
         padding: theme.spacing(3),
         margin: theme.spacing(2),
         alignItems: "center",
-        flexDirection:"column",
+        flexDirection: "column",
         display: "flex",
     },
     right: {
         padding: theme.spacing(3),
         margin: theme.spacing(2),
         alignItems: "flex-end",
-        flexDirection:"column",
+        flexDirection: "column",
         display: "flex",
     },
 
@@ -32,11 +32,11 @@ class CheckOut extends react.Component {
 
     render() {
 
-        const { classes, product, shop } = this.props;
-        const uniqueProducts = shop.shoppingBasket.GetProducts().filter((product, idx, prodtucts) => prodtucts.indexOf(product) === idx);
+        const { classes, shop } = this.props;
+        const uniqueProducts = shop.shoppingBasket.GetProducts().filter((v, i, a) => a.findIndex(t => (t.id === v.id)) === i)
         return (
             <div>
-                 <Typography gutterBottom variant="h6">Varukorg</Typography>
+                <Typography gutterBottom variant="h6">Varukorg</Typography>
                 <Grid container spacing={2} wrap="wrap" justify="flex-start">
                     <Grid item xs={12} lg={8} >
                         {uniqueProducts.length == 0 && <Paper className={classes.left}>
@@ -44,14 +44,14 @@ class CheckOut extends react.Component {
                         </Paper>}
                         {uniqueProducts.map(product => (<CheckoutProduct key={product.id} product={product} shop={shop} />))}
                     </Grid>
-                    <Grid item  xs={12} lg={4}>
-                        <Paper className={ classes.right} >
+                    <Grid item xs={12} lg={4}>
+                        <Paper className={classes.right} >
                             <Typography gutterBottom variant="h4">Sammanfattning</Typography>
                             <Typography gutterBottom variant="h6">Totalt {shop.shoppingBasket.GetTotalPrice()} kr</Typography>
                             <Typography gutterBottom variant="h6">Frakt 0 kr</Typography>
                             <Typography gutterBottom variant="h5">Totalpris {shop.shoppingBasket.GetTotalPrice()} kr</Typography>
                             <Button variant="contained" color="secondary"
-                            disabled={shop.shoppingBasket.GetTotalNumber()==0}
+                                disabled={shop.shoppingBasket.GetTotalNumber() == 0}
                                 onClick={() => this.props.history.push(Urls.confirm)}>Lägg order</Button>
                         </Paper>
                     </Grid>
