@@ -40,8 +40,8 @@ class ProductList extends React.Component {
                     </Paper>
                     </Grid>}
                 {shop.products.map(product => (
-                    <Grid item xs={12} md={6}>
-                        <Link to={{ pathname: Urls.productInfo + "" + product.name.replace(" ", "_"), state: { product } }} className={classes.link} key={product.id}>
+                    <Grid item xs={12} md={6}  key={product.id}>
+                        <Link to={{ pathname: Urls.productInfo + "" + product.name.replace(" ", "_"), state: { product } }} className={classes.link}>
                             <Product enableHover={true} product={product} key={product.id} shop={shop} />
                         </Link>
                     </Grid>

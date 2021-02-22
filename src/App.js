@@ -6,6 +6,8 @@ import './App.css';
 import Routes from './Routes/Routes';
 import { roboShopTheme } from './Theme';
 import ShoppingBasket from "./Util/ShoppingBasket"
+import CookiesAlert from "./Components/CookiesAlert"
+
 class App extends react.Component {
   constructor(props) {
     super(props);
@@ -76,6 +78,7 @@ class App extends react.Component {
         <div className="container">
           <ThemeProvider theme={roboShopTheme}>
             <Routes childprops={childprops} />
+            <CookiesAlert/>
           </ThemeProvider>
         </div >
       </div >
