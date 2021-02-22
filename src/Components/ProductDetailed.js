@@ -31,18 +31,15 @@ const styles = (theme) => ({
 class ProductDetailed extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { elevation: 1 }
     }
 
-    onMouseOver = () => this.setState({ elevation: 5 });
-    onMouseOut = () => this.setState({ elevation: 1 });
 
 
     render() {
         const { classes, product, shop } = this.props;
          console.log(product.inStock , shop.shoppingBasket.GetNumberOf(product));
         return (
-            <Product product={product} classes={classes} shop={shop} >
+            <Product enableHover={false}  product={product} classes={classes} shop={shop} >
                 <Button variant="contained" color="secondary" 
                 disabled={product.inStock<= shop.shoppingBasket.GetNumberOf(product) || product.instock==0}
                 onClick={() => shop.AddToBasket(product)}>Köp</Button>

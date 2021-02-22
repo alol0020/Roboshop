@@ -35,8 +35,8 @@ class Product extends React.Component {
         this.state = { elevation: 1 }
     }
 
-    onMouseOver = () => this.setState({ elevation: 5 });
-    onMouseOut = () => this.setState({ elevation: 1 });
+    onMouseOver = () => this.props.enableHover && this.setState({ elevation: 5 });
+    onMouseOut = () => this.props.enableHover && this.setState({ elevation: 1 });
 
 
     render() {
