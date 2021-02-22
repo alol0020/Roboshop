@@ -12,13 +12,14 @@ class App extends react.Component {
     let shoppingBasket = new ShoppingBasket();
     this.state = { products: [], shoppingBasket, reload: true }
 
+    this.FetchProducts = this.FetchProducts.bind(this);
     this.AddToBasket = this.AddToBasket.bind(this);
     this.RemoveFromBasket = this.RemoveFromBasket.bind(this);
     this.RemoveAllFromBasket = this.RemoveAllFromBasket.bind(this);
   }
 
   componentDidMount() {
-    this.fetchProducts();
+    this.FetchProducts();
     let oldShoppingBasket = JSON.parse(localStorage.getItem("shoppingBasket"));
     if (oldShoppingBasket) {
       let basketToUpdate = this.state.shoppingBasket;
@@ -28,7 +29,7 @@ class App extends react.Component {
     }
   }
 
-  async fetchProducts() {
+  async FetchProducts() {
     let products = await GetAllProducts();
     if (products?.length > 0) {
       this.setState({ products });
@@ -52,18 +53,15 @@ class App extends react.Component {
       localStorage.setItem("shoppingBasket", JSON.stringify(this.state.shoppingBasket));
     }
   }
+
   RemoveAllFromBasket() {
     let shoppingBasket = this.state.shoppingBasket;
     shoppingBasket.RemoveAll();
     // this.setState({ reload: !this.state.reload }); //Todo: Den skulle ladda om varukorgen efter betalning men laddar om hela sidan och åtgergår till main...
     localStorage.setItem("shoppingBasket", JSON.stringify(this.state.shoppingBasket));
-
   }
 
-
-
   render() {
-
     const childprops = {
       shop:
       {
@@ -76,7 +74,6 @@ class App extends react.Component {
     return (
       <div className="page">
         <div className="container">
-
           <ThemeProvider theme={roboShopTheme}>
             <Routes childprops={childprops} />
           </ThemeProvider>

@@ -1,32 +1,7 @@
-import { Button, Grid, Paper, Typography } from "@material-ui/core";
-import { withStyles } from "@material-ui/styles";
 import react from "react";
 import { Redirect } from "react-router-dom";
 import Checkout from "../Checkout/Checkout";
-import CheckoutProduct from "../Components/CheckoutProduct";
 import { Urls } from "../Routes/Routes";
-
-
-const styles = (theme) => ({
-
-    left: {
-        padding: theme.spacing(3),
-        margin: theme.spacing(2),
-        alignItems: "center",
-        flexDirection: "column",
-        display: "flex",
-    },
-    right: {
-        padding: theme.spacing(3),
-        margin: theme.spacing(2),
-        alignItems: "flex-end",
-        flexDirection: "column",
-        display: "flex",
-    },
-
-});
-
-
 
 class ConfirmationPage extends react.Component {
 
@@ -75,4 +50,4 @@ class ConfirmationPage extends react.Component {
     }
 }
 
-export default withStyles(styles)(ConfirmationPage)
+export default ConfirmationPage
